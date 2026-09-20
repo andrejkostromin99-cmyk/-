@@ -11,7 +11,7 @@
 <table cellpadding="5">
 <tr>
 <td valign="top">
-    <form id="form" onsubmit="showInfo(event)">
+    <form id="form">
         <b>Ваше имя</b><br><br>
         <input type="text" id="name" size="30"><br><br>
 
@@ -35,43 +35,43 @@
         <b>Напишите несколько слов о себе</b><br><br>
         <textarea id="about" rows="6" cols="45"></textarea><br><br>
 
-        <input type="submit" value="Отправка данных">
+        <button type="button" onclick="showInfo()">Отправка данных</button>
         <input type="reset" value="Сброс" onclick="clearInfo()">
     </form>
 </td>
 
 <td valign="top" style="padding-left:60px">
     <h3>Ваша информация:</h3>
-    <p><b>Имя:</b> <span id="out-name"></span></p>
-    <p><b>Пол:</b> <span id="out-gender"></span></p>
-    <p><b>Курс:</b> <span id="out-course"></span></p>
-    <p><b>Языки:</b> <span id="out-lang"></span></p>
-    <p><b>О себе:</b> <span id="out-about"></span></p>
+    <p><b>Имя:</b> <span id="out-name">...</span></p>
+    <p><b>Пол:</b> <span id="out-gender">...</span></p>
+    <p><b>Курс:</b> <span id="out-course">...</span></p>
+    <p><b>Языки:</b> <span id="out-lang">...</span></p>
+    <p><b>О себе:</b> <span id="out-about">...</span></p>
 </td>
 </tr>
 </table>
 
 <script>
-function showInfo(event) {
-    event.preventDefault();
-
+function showInfo() {
+    // Имя
     let name = document.getElementById('name').value;
-    document.getElementById('out-name').innerText = name || '...';
+    if (name == '') name = '...';
+    document.getElementById('out-name').innerText = name;
 
+    // Пол
     let gender = document.querySelector('input[name="gender"]:checked').value;
     document.getElementById('out-gender').innerText = gender;
 
+    // Курс
     let course = document.getElementById('course').value;
     document.getElementById('out-course').innerText = course;
 
-    let langs = [];
-    document.querySelectorAll('.lang:checked').forEach(function(cb) {
-        langs.push(cb.value);
-    });
-    document.getElementById('out-lang').innerText = langs.length ? langs.join(', ') : '...';
+    
 
+    // О себе
     let about = document.getElementById('about').value;
-    document.getElementById('out-about').innerText = about || '...';
+    if (about == '') about = '...';
+    document.getElementById('out-about').innerText = about;
 }
 
 function clearInfo() {
