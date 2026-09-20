@@ -66,20 +66,22 @@ function showInfo() {
     let course = document.getElementById('course').value;
     document.getElementById('out-course').innerText = course;
 
-    
+    // Языки
+    let langs = [];
+    let checkboxes = document.querySelectorAll('.lang:checked');
+    for (let i = 0; i < checkboxes.length; i++) {
+        langs.push(checkboxes[i].value);
+    }
+    if (langs.length == 0) {
+        document.getElementById('out-lang').innerText = '...';
+    } else {
+        document.getElementById('out-lang').innerText = langs.join(', ');
+    }
 
     // О себе
     let about = document.getElementById('about').value;
     if (about == '') about = '...';
     document.getElementById('out-about').innerText = about;
-}
-
-function clearInfo() {
-    document.getElementById('out-name').innerText = '...';
-    document.getElementById('out-gender').innerText = '...';
-    document.getElementById('out-course').innerText = '...';
-    document.getElementById('out-lang').innerText = '...';
-    document.getElementById('out-about').innerText = '...';
 }
 </script>
 
