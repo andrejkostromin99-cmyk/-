@@ -222,56 +222,90 @@
 
     <hr>
 
-    <form id="form" class="form-group">
-        <h2>Заполните анкету</h2>
+    <table>
+        <tr><td></td><td></td><td></td><td></td><td></td></tr>
+        <tr><td></td><td></td><td></td><td></td><td></td></tr>
+        <tr><td></td><td></td><td></td><td></td><td></td></tr>
+        <tr><td></td><td></td><td></td><td></td><td></td></tr>
+        <tr><td></td><td></td><td></td><td></td><td></td></tr>
+        <tr><td></td><td></td><td></td><td></td><td></td></tr>
+    </table>
 
-        <div class="form-group">
-            <label for="name">Ваше имя</label><br><br>
-            <input type="text" id="name" size="30">
-        </div>
+    <table>
+        <tr>
+            <td colspan="5"></td>
+        </tr>
+        <tr>
+            <td rowspan="4"></td>
+            <td></td>
+            <td rowspan="4"></td>
+            <td></td>
+            <td></td>
+        </tr>
+        <tr>
+            <td rowspan="3"></td>
+            <td rowspan="3"></td>
+            <td></td>
+        </tr>
+        <tr>
+            <td></td>
+        </tr>
+        <tr>
+            <td></td>
+        </tr>
+        <tr>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+        </tr>
+    </table>
 
-        <div class="form-group">
-            <b>Ваш пол</b><br><br>
-            <label><input type="radio" name="gender" value="женский" checked> женский</label>
-            <label><input type="radio" name="gender" value="мужской"> мужской</label>
-        </div>
+    <hr>
 
-        <div class="form-group">
-            <label for="course"><b>На каком курсе вы учитесь?</b></label><br><br>
-            <select id="course">
-                <option>первый</option>
-                <option>второй</option>
-                <option>третий</option>
-                <option>четвёртый</option>
-            </select>
-        </div>
+    <table class="form-table">
+        <tr>
+            <td valign="top">
+                <form id="form">
+                    <b>Ваше имя</b><br><br>
+                    <input type="text" id="name" size="30"><br><br>
 
-        <div class="form-group">
-            <b>Какие языки программирования вы знаете?</b><br><br>
-            <label><input type="checkbox" class="lang" value="Паскаль"> Паскаль</label><br>
-            <label><input type="checkbox" class="lang" value="C++"> C++</label><br>
-            <label><input type="checkbox" class="lang" value="Ассемблер"> Ассемблер</label>
-        </div>
+                    <b>Ваш пол</b><br><br>
+                    <input type="radio" name="gender" value="женский" checked> женский
+                    <input type="radio" name="gender" value="мужской"> мужской<br><br>
 
-        <div class="form-group">
-            <label for="about"><b>Напишите несколько слов о себе</b></label><br><br>
-            <textarea id="about" rows="6" cols="45"></textarea>
-        </div>
+                    <b>На каком курсе вы учитесь?</b><br><br>
+                    <select id="course">
+                        <option>первый</option>
+                        <option>второй</option>
+                        <option>третий</option>
+                        <option>четвёртый</option>
+                    </select><br><br>
 
-        <div class="buttons">
-            <button type="button" onclick="showInfo()">Отправка данных</button>
-            <button type="reset" onclick="clearInfo()">Сброс</button>
-        </div>
-    </form>
+                    <b>Какие языки программирования вы знаете?</b><br><br>
+                    <input type="checkbox" class="lang" value="Паскаль"> Паскаль<br>
+                    <input type="checkbox" class="lang" value="C++"> C++<br>
+                    <input type="checkbox" class="lang" value="Ассемблер"> Ассемблер<br><br>
 
-    <div id="result">
-        <h3>Ваша информация:</h3>
-        <p><b>Имя:</b> <span id="out-name">...</span></p>
-        <p><b>Пол:</b> <span id="out-gender">...</span></p>
-        <p><b>Курс:</b> <span id="out-course">...</span></p>
-        <p><b>Языки:</b> <span id="out-lang">...</span></p>
-        <p><b>О себе:</b> <span id="out-about">...</span></p>
-    </div>
+                    <b>Напишите несколько слов о себе</b><br><br>
+                    <textarea id="about" rows="6" cols="45"></textarea><br><br>
+
+                    <button type="button" onclick="showInfo()">Отправка данных</button>
+                    <button type="reset" onclick="clearInfo()">Сброс</button>
+                </form>
+            </td>
+
+            <td valign="top" style="padding-left:60px">
+                <h3>Ваша информация:</h3>
+                <p><b>Имя:</b> <span id="out-name">...</span></p>
+                <p><b>Пол:</b> <span id="out-gender">...</span></p>
+                <p><b>Курс:</b> <span id="out-course">...</span></p>
+                <p><b>Языки:</b> <span id="out-lang">...</span></p>
+                <p><b>О себе:</b> <span id="out-about">...</span></p>
+            </td>
+        </tr>
+    </table>
 
 </div>
 
