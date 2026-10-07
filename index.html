@@ -1,201 +1,311 @@
 <!DOCTYPE html>
-<html>
+<html lang="ru">
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Анкета</title>
-</head>
-<body>
-
-<h1>АНКЕТА</h1>
-<p> Этот сайт принадлежит Костромину Андрею </p>
-	<p>Фото студента:</p> 
-	<img src="фото.png" alt="Фото студента" width = "100">
-    <p> Почта: andrejkostromin22@gmail.com </p>
-	<p> ссылка на сайт колледжа: https://slobkoll.ru </p>
-	<p> Мой колледж: Слободской колледж педагогики
-и социальных отношений </p>
-    <p>Моя группа: 24П-1</p>
-	<p> Моя будущая профессия: программист </p>
-	<p> мои увлечения: игры </p>
-	<p>Любая другая информация: жду каникулы</p>
-	
-
     <style>
-        table {
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f9;
+            color: #333;
+            margin: 0;
+            padding: 0;
+            line-height: 1.6;
+        }
+
+        nav {
+            background-color: #2c3e50;
+            padding: 15px 20px;
+            text-align: center;
+        }
+
+        nav a {
+            color: #ecf0f1;
+            text-decoration: none;
+            margin: 0 15px;
+            font-weight: bold;
+            font-size: 16px;
+        }
+
+        nav a:hover {
+            color: #3498db;
+            text-decoration: underline;
+        }
+
+        .page {
+            max-width: 800px;
+            margin: 30px auto;
+            background-color: #ffffff;
+            padding: 30px;
+            border-radius: 8px;
+        }
+
+        h1, h2, h3 {
+            color: #2c3e50;
+        }
+
+        h1 {
+            text-align: center;
+            border-bottom: 2px solid #3498db;
+            padding-bottom: 10px;
+            margin-bottom: 20px;
+        }
+
+        img {
+            display: block;
+            margin: 20px auto;
+            border-radius: 10px;
+        }
+
+        button {
+            background-color: #3498db;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+
+        button:hover {
+            background-color: #2980b9;
+        }
+
+        button a {
+            color: white;
+            text-decoration: none;
+        }
+
+        .form-group {
+            margin-bottom: 15px;
+        }
+
+        label {
+            font-weight: bold;
+            color: #555;
+        }
+
+        input[type="text"],
+        select,
+        textarea {
             width: 100%;
-            border-collapse: collapse; 
+            padding: 10px;
+            margin-top: 5px;
+            border-radius: 5px;
+            box-sizing: border-box;
+            font-family: inherit;
         }
-        td {
-            border: 1px solid black; 
-            height: 30px; 
-            width: 20%; 
+
+        input[type="radio"],
+        input[type="checkbox"] {
+            margin-right: 5px;
         }
-    </style>
-</head>
-<body>
 
-    <table>
-        <tr>
-            <td></td><td></td><td></td><td></td><td></td>
-        </tr>
-        <tr>
-            <td></td><td></td><td></td><td></td><td></td>
-        </tr>
-        <tr>
-            <td></td><td></td><td></td><td></td><td></td>
-        </tr>
-        <tr>
-            <td></td><td></td><td></td><td></td><td></td>
-        </tr>
-        <tr>
-            <td></td><td></td><td></td><td></td><td></td>
-        </tr>
-        <tr>
-            <td></td><td></td><td></td><td></td><td></td>
-        </tr>
-    </table>
+        .buttons {
+            margin-top: 20px;
+            text-align: center;
+        }
 
-</body>
+        .buttons button {
+            margin: 0 5px;
+            padding: 10px 25px;
+        }
 
-<head>
-    <meta charset="UTF-8">
-    
-    <style>
+        .buttons button[type="reset"] {
+            background-color: #e74c3c;
+        }
+
+        .buttons button[type="reset"]:hover {
+            background-color: #c0392b;
+        }
+
+        #result {
+            background-color: #e8f8f5;
+            border-left: 5px solid #1abc9c;
+            padding: 15px;
+            border-radius: 5px;
+            margin-top: 20px;
+        }
+
+        #result h3 {
+            margin-top: 0;
+            color: #16a085;
+        }
+
         table {
             width: 100%;
             border-collapse: collapse;
+            margin: 20px auto;
+            background-color: #fff;
         }
-        td {
-            border: 1px solid black;
-            height: 35px; 
+
+        table td {
+            border: 1px solid #999;
             text-align: center;
+            vertical-align: middle;
+            height: 35px;
+        }
+
+        ul, ol {
+            margin-left: 20px;
+        }
+
+        li {
+            margin-bottom: 5px;
+        }
+
+        .form-table td {
+            border: none;
+            text-align: left;
+            vertical-align: top;
+            padding: 0;
+            height: auto;
+        }
+
+        .form-table td:first-child {
+            padding-right: 40px;
+        }
+
+        @media (max-width: 600px) {
+            .page {
+                margin: 15px;
+                padding: 15px;
+            }
+
+            nav a {
+                display: block;
+                margin: 5px 0;
+            }
+
+            .form-table,
+            .form-table tbody,
+            .form-table tr,
+            .form-table td {
+                display: block;
+                width: 100%;
+            }
+
+            .form-table td:first-child {
+                padding-right: 0;
+                margin-bottom: 20px;
+            }
         }
     </style>
 </head>
 <body>
-<p></p>
-    <table>
-        
-        <tr>
-            <td colspan="5"></td>
-        </tr>
-        
-       
-        <tr>
-            <td rowspan="4"></td> 
-            <td></td>
-            <td rowspan="4"></td> 
-            <td></td>
-            <td></td>           
-        </tr>
-        
-       
-        <tr>
-            <td rowspan="3"></td> 
-            <td rowspan="3"></td> 
-            <td></td>             
-        </tr>
-        
-        
-        <tr>
-            <td></td>             
-        </tr>
-        
-        
-        <tr>
-            <td></td>           
-        </tr>
-        
-        <tr>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>             
-        </tr>
-    </table>
-	
 
+<nav>
+    <a href="#about">Об студенте</a>
+    <a href="#form">Анкета</a>
+    <a href="#result">Результат</a>
+</nav>
 
+<div class="page">
 
+    <h1>АНКЕТА</h1>
 
+    <section id="about">
+        <p>Этот сайт принадлежит Костромину Андрею</p>
+        <p>Фото студента:</p>
+        <img src="фото.png" alt="Фото студента" width="100">
+        <p>Почта: andrejkostromin22@gmail.com</p>
+        <p>Ссылка на сайт колледжа:
+            <a href="https://slobkoll.ru" target="_blank">https://slobkoll.ru</a>
+        </p>
+        <p>Мой колледж: Слободской колледж педагогики и социальных отношений</p>
+        <p>Моя группа: 24П-1</p>
+        <p>Моя будущая профессия: программист</p>
+        <p>Мои увлечения: игры</p>
+        <p>Любая другая информация: жду каникулы</p>
+    </section>
 
+    <hr>
 
+    <form id="form" class="form-group">
+        <h2>Заполните анкету</h2>
 
-	
-<td valign="top">
-    <form id="form">
-        <b>Ваше имя</b><br><br>
-        <input type="text" id="name" size="30"><br><br>
+        <div class="form-group">
+            <label for="name">Ваше имя</label><br><br>
+            <input type="text" id="name" size="30">
+        </div>
 
-        <b>Ваш пол</b><br><br>
-        <input type="radio" name="gender" value="женский" checked> женский
-        <input type="radio" name="gender" value="мужской"> мужской<br><br>
+        <div class="form-group">
+            <b>Ваш пол</b><br><br>
+            <label><input type="radio" name="gender" value="женский" checked> женский</label>
+            <label><input type="radio" name="gender" value="мужской"> мужской</label>
+        </div>
 
-        <b>На каком курсе вы учитесь?</b><br><br>
-        <select id="course">
-            <option>первый</option>
-            <option>второй</option>
-            <option>третий</option>
-            <option>четвёртый</option>
-        </select><br><br>
+        <div class="form-group">
+            <label for="course"><b>На каком курсе вы учитесь?</b></label><br><br>
+            <select id="course">
+                <option>первый</option>
+                <option>второй</option>
+                <option>третий</option>
+                <option>четвёртый</option>
+            </select>
+        </div>
 
-        <b>Какие языки программирования вы знаете?</b><br><br>
-        <input type="checkbox" class="lang" value="Паскаль"> Паскаль<br>
-        <input type="checkbox" class="lang" value="C++"> C++<br>
-        <input type="checkbox" class="lang" value="Ассемблер"> Ассемблер<br><br>
+        <div class="form-group">
+            <b>Какие языки программирования вы знаете?</b><br><br>
+            <label><input type="checkbox" class="lang" value="Паскаль"> Паскаль</label><br>
+            <label><input type="checkbox" class="lang" value="C++"> C++</label><br>
+            <label><input type="checkbox" class="lang" value="Ассемблер"> Ассемблер</label>
+        </div>
 
-        <b>Напишите несколько слов о себе</b><br><br>
-        <textarea id="about" rows="6" cols="45"></textarea><br><br>
+        <div class="form-group">
+            <label for="about"><b>Напишите несколько слов о себе</b></label><br><br>
+            <textarea id="about" rows="6" cols="45"></textarea>
+        </div>
 
-        <button type="button" onclick="showInfo()">Отправка данных</button>
-        <input type="reset" value="Сброс" onclick="clearInfo()">
+        <div class="buttons">
+            <button type="button" onclick="showInfo()">Отправка данных</button>
+            <button type="reset" onclick="clearInfo()">Сброс</button>
+        </div>
     </form>
-</td>
 
-<td valign="top" style="padding-left:60px">
-    <h3>Ваша информация:</h3>
-    <p><b>Имя:</b> <span id="out-name">...</span></p>
-    <p><b>Пол:</b> <span id="out-gender">...</span></p>
-    <p><b>Курс:</b> <span id="out-course">...</span></p>
-    <p><b>Языки:</b> <span id="out-lang">...</span></p>
-    <p><b>О себе:</b> <span id="out-about">...</span></p>
-</td>
-</tr>
-</table>
+    <div id="result">
+        <h3>Ваша информация:</h3>
+        <p><b>Имя:</b> <span id="out-name">...</span></p>
+        <p><b>Пол:</b> <span id="out-gender">...</span></p>
+        <p><b>Курс:</b> <span id="out-course">...</span></p>
+        <p><b>Языки:</b> <span id="out-lang">...</span></p>
+        <p><b>О себе:</b> <span id="out-about">...</span></p>
+    </div>
+
+</div>
 
 <script>
-function showInfo() {
-    // Имя
-    let name = document.getElementById('name').value;
-    if (name == '') name = '...';
-    document.getElementById('out-name').innerText = name;
+    function showInfo() {
+        let name = document.getElementById('name').value;
+        if (name === '') name = '...';
+        document.getElementById('out-name').innerText = name;
 
-    // Пол
-    let gender = document.querySelector('input[name="gender"]:checked').value;
-    document.getElementById('out-gender').innerText = gender;
+        let gender = document.querySelector('input[name="gender"]:checked').value;
+        document.getElementById('out-gender').innerText = gender;
 
-    // Курс
-    let course = document.getElementById('course').value;
-    document.getElementById('out-course').innerText = course;
+        let course = document.getElementById('course').value;
+        document.getElementById('out-course').innerText = course;
 
-    // Языки
-    let langs = [];
-    let checkboxes = document.querySelectorAll('.lang:checked');
-    for (let i = 0; i < checkboxes.length; i++) {
-        langs.push(checkboxes[i].value);
+        let langs = [];
+        let checkboxes = document.querySelectorAll('.lang:checked');
+        for (let i = 0; i < checkboxes.length; i++) {
+            langs.push(checkboxes[i].value);
+        }
+        document.getElementById('out-lang').innerText = langs.length ? langs.join(', ') : '...';
+
+        let about = document.getElementById('about').value;
+        if (about === '') about = '...';
+        document.getElementById('out-about').innerText = about;
     }
-    if (langs.length == 0) {
+
+    function clearInfo() {
+        document.getElementById('out-name').innerText = '...';
+        document.getElementById('out-gender').innerText = '...';
+        document.getElementById('out-course').innerText = '...';
         document.getElementById('out-lang').innerText = '...';
-    } else {
-        document.getElementById('out-lang').innerText = langs.join(', ');
+        document.getElementById('out-about').innerText = '...';
     }
-
-    // О себе
-    let about = document.getElementById('about').value;
-    if (about == '') about = '...';
-    document.getElementById('out-about').innerText = about;
-}
 </script>
 
 </body>
