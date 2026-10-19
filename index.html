@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<title>Анкета</title>
+<style>
+    body { font-family: Arial; background: #f4f4f9; margin: 0; }
+    .page { max-width: 800px; margin: 30px auto; background: #fff; padding: 30px; border-radius: 8px; }
+    h1 { text-align: center; color: #2c3e50; }
+    h2 { color: #2c3e50; border-bottom: 2px solid #3498db; padding-bottom: 8px; }
+    h3 { color: #16a085; }
+    section { padding: 20px 0; }
+    input[type="text"], select, textarea { width: 100%; padding: 8px; box-sizing: border-box; }
+    button { background: #3498db; color: white; border: none; padding: 10px 20px; border-radius: 5px; cursor: pointer; margin: 5px 5px 0 0; }
+    button:hover { background: #2980b9; }
+    #result-box { background: #e8f8f5; border-left: 5px solid #1abc9c; padding: 15px; border-radius: 5px; margin-top: 20px; }
+    img { display: block; margin: 10px 0; border-radius: 8px; }
+    table { width: 100%; border-collapse: collapse; margin: 20px 0; }
+    table td { border: 1px solid #999; height: 35px; text-align: center; vertical-align: middle; }
+</style>
+</head>
+<body>
+
+<iframe src="menu.html" style="width:100%; height:60px; border:none; display:block;"></iframe>
+
+<div class="page">
+
+    <!-- ===== ОБ СТУДЕНТЕ ===== -->
+    <section id="about">
+        <h1>Об студенте</h1>
+        <p>Этот сайт принадлежит Костромину Андрею</p>
+        <img src="фото.png" alt="Фото" width="100">
+        <p><b>Почта:</b> andrejkostromin22@gmail.com</p>
+        <p><b>Колледж:</b> <a href="https://slobkoll.ru" target="_blank">slobkoll.ru</a></p>
+        <p><b>Группа:</b> 24П-1</p>
+        <p><b>Профессия:</b> программист</p>
+        <p><b>Увлечения:</b> игры</p>
+    </section>
+
+    <hr>
+
+    <!-- ===== ТАБЛИЦА 1 (пустая) ===== -->
+    <table>
+        <tr><td></td><td></td><td></td><td></td><td></td></tr>
+        <tr><td></td><td></td><td></td><td></td><td></td></tr>
+        <tr><td></td><td></td><td></td><td></td><td></td></tr>
+        <tr><td></td><td></td><td></td><td></td><td></td></tr>
+        <tr><td></td><td></td><td></td><td></td><td></td></tr>
+        <tr><td></td><td></td><td></td><td></td><td></td></tr>
+    </table>
+
+    <!-- ===== ТАБЛИЦА 2 (пустая, с объединением ячеек) ===== -->
+    <table>
+        <tr>
+            <td colspan="5"></td>
+        </tr>
+        <tr>
+            <td rowspan="4"></td>
+            <td></td>
+            <td rowspan="4"></td>
+            <td></td>
+            <td></td>
+        </tr>
+        <tr>
+            <td rowspan="3"></td>
+            <td rowspan="3"></td>
+            <td></td>
+        </tr>
+        <tr><td></td></tr>
+        <tr><td></td></tr>
+        <tr>
+            <td></td><td></td><td></td><td></td><td></td>
+        </tr>
+    </table>
+
+    <hr>
+
+    <!-- ===== АНКЕТА ===== -->
+    <section id="form">
+        <h2>Анкета</h2>
+
+        <b>Ваше имя</b>
+        <input type="text" id="name">
+
+        <p><b>Ваш пол</b></p>
+        <input type="radio" name="gender" value="женский" checked> женский
+        <input type="radio" name="gender" value="мужской"> мужской
+
+        <p><b>Курс</b></p>
+        <select id="course">
+            <option>первый</option>
+            <option>второй</option>
+            <option>третий</option>
+            <option>четвёртый</option>
+        </select>
+
+        <p><b>Языки программирования</b></p>
+        <input type="checkbox" class="lang" value="Паскаль"> Паскаль<br>
+        <input type="checkbox" class="lang" value="C++"> C++<br>
+        <input type="checkbox" class="lang" value="Ассемблер"> Ассемблер
+
+        <p><b>О себе</b></p>
+        <textarea id="aboutMe" rows="5"></textarea>
+
+        <div style="margin-top:15px;">
+            <button onclick="showInfo()">Отправить данные</button>
+            <button onclick="clearInfo()">Сброс</button>
+        </div>
+    </section>
+
+    <hr>
+
+    <!-- ===== РЕЗУЛЬТАТ ===== -->
+    <section id="result">
+        <h2>Результат</h2>
+        <div id="result-box">
+            <h3>Ваша информация:</h3>
+            <p><b>Имя:</b> <span id="out-name">...</span></p>
+            <p><b>Пол:</b> <span id="out-gender">...</span></p>
+            <p><b>Курс:</b> <span id="out-course">...</span></p>
+            <p><b>Языки:</b> <span id="out-lang">...</span></p>
+            <p><b>О себе:</b> <span id="out-about">...</span></p>
+        </div>
+    </section>
+
+</div>
+
+<script>
+    function showInfo() {
+        document.getElementById('out-name').innerText = document.getElementById('name').value || '...';
+        document.getElementById('out-gender').innerText = document.querySelector('input[name="gender"]:checked').value;
+        document.getElementById('out-course').innerText = document.getElementById('course').value;
+        document.getElementById('out-about').innerText = document.getElementById('aboutMe').value || '...';
+
+        let langs = [];
+        document.querySelectorAll('.lang:checked').forEach(function(c) {
+            langs.push(c.value);
+        });
+        document.getElementById('out-lang').innerText = langs.join(', ') || '...';
+    }
+
+    function clearInfo() {
+        document.getElementById('out-name').innerText = '...';
+        document.getElementById('out-gender').innerText = '...';
+        document.getElementById('out-course').innerText = '...';
+        document.getElementById('out-lang').innerText = '...';
+        document.getElementById('out-about').innerText = '...';
+    }
+</script>
+
+</body>
+</html>
