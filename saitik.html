@@ -4,9 +4,16 @@
     <meta charset="UTF-8">
     <title>Изображения-карты</title>
     <style>
+       
         nav { background: #2c3e50; padding: 15px; text-align: center; }
         nav a { color: white; text-decoration: none; margin: 0 15px; font-size: 16px; }
         nav a:hover { color: #3498db; }
+        
+        .map-container { 
+            text-align: center; 
+            margin-bottom: 40px; 
+            margin-top: 20px;
+        }
     </style>
 </head>
 <body>
@@ -18,17 +25,18 @@
         <a href="list.html"         target="_top">Список группы</a>
         <a href="saitik.html"       target="_top">Рисуночек</a>
     </nav>
-    <div style="margin-bottom: 30px;"> 
-    <p>Ромбик</p>
-    <IMG src="рисуночек.png" usemap="#map1"> 
-</div>
 
+    <div class="map-container"> 
+        <p><strong>Ромбик</strong></p> 
+        <IMG src="рисуночек.png" usemap="#map1" alt="Ромбик"> 
+    </div>
 
-<div>
-    <p>Карта</p>
-   
-    <IMG src="рисунок.jpg" usemap="#map2" style="width: 400px; height: auto;"> 
-</div>
+    <div class="map-container">
+        <p><strong>Карта</strong></p>
+        
+        
+        <IMG src="рисунок.jpg" usemap="#map2" alt="Карта"> 
+    </div>
     
 </body>
 </html>
