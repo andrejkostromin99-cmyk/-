@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Анкета</title>
+<style>
+    nav { background: #2c3e50; padding: 15px; text-align: center; }
+    nav a { color: white; text-decoration: none; margin: 0 15px; font-size: 16px; }
+    nav a:hover { color: #3498db; }
+    body { font-family: 'Times New Roman', Times, serif; background: #f4f4f9; margin: 0; }
+</style>
+<body>
+    <nav>
+        <a href="index.html"  target="_top">Мой сайт</a>
+        <a href ="table.html" target="_top">таблицы</a>
+        <a href="anketa.html"   target="_top">Анкета</a>
+        <a href="list.html"         target="_top">Список группы</a>
+        <a href="saitik.html"       target="_top">Рисунок</a>
+    </nav>
+<section id="form">
+        <h2>Анкета</h2>
+
+        <b>Ваше имя</b>
+        <input type="text" id="name">
+
+        <p><b>Ваш пол</b></p>
+        <input type="radio" name="gender" value="женский" checked> женский
+        <input type="radio" name="gender" value="мужской"> мужской
+
+        <p><b>Курс</b></p>
+        <select id="course">
+            <option>первый</option>
+            <option>второй</option>
+            <option>третий</option>
+            <option>четвёртый</option>
+        </select>
+
+        <p><b>Языки программирования</b></p>
+        <input type="checkbox" class="lang" value="Паскаль"> Паскаль<br>
+        <input type="checkbox" class="lang" value="C++"> C++<br>
+        <input type="checkbox" class="lang" value="Ассемблер"> Ассемблер
+
+        <p><b>О себе</b></p>
+        <textarea id="aboutMe" rows="5"></textarea>
+
+        <div style="margin-top:15px;">
+            <button onclick="showInfo()">Отправить данные</button>
+            <button onclick="clearInfo()">Сброс</button>
+        </div>
+    </section>
+
+    <hr>
+    <section id="result">
+        <h2>Результат</h2>
+        <div id="result-box">
+            <h3>Ваша информация:</h3>
+            <p><b>Имя:</b> <span id="out-name">...</span></p>
+            <p><b>Пол:</b> <span id="out-gender">...</span></p>
+            <p><b>Курс:</b> <span id="out-course">...</span></p>
+            <p><b>Языки:</b> <span id="out-lang">...</span></p>
+            <p><b>О себе:</b> <span id="out-about">...</span></p>
+        </div>
+    </section>
+
+    <hr>
+
+    <script>
+    // ===== Анкета =====
+    function showInfo() {
+        document.getElementById('out-name').innerText = document.getElementById('name').value || '...';
+        document.getElementById('out-gender').innerText = document.querySelector('input[name="gender"]:checked').value;
+        document.getElementById('out-course').innerText = document.getElementById('course').value;
+        document.getElementById('out-about').innerText = document.getElementById('aboutMe').value || '...';
+
+        let langs = [];
+        document.querySelectorAll('.lang:checked').forEach(function(c) {
+            langs.push(c.value);
+        });
+        document.getElementById('out-lang').innerText = langs.join(', ') || '...';
+    }
+
+    function clearInfo() {
+        document.getElementById('out-name').innerText = '...';
+        document.getElementById('out-gender').innerText = '...';
+        document.getElementById('out-course').innerText = '...';
+        document.getElementById('out-lang').innerText = '...';
+        document.getElementById('out-about').innerText = '...';
+    }
+
+    // ===== Задание: динамический список =====
+    var arr = ["Ivanov", "Petrov", "Sidorov"];
+    var counter = 0;
+
+    function add_to_list() {
+        if (typeof(arr[counter]) != "undefined") {
+            var list = document.getElementById('list');
+            var li = document.createElement('LI');
+            li.innerHTML = arr[counter];
+            list.appendChild(li);
+            counter++;
+        }
+    }
+</script>
+</body>
+</head>
+</html>
