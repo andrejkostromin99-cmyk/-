@@ -5,9 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Сетка</title>
     <style>
-        /* Стили для всей страницы */
         body {
-            background-color: #e6f0fa; /* Светло-голубой фон, как на фото монитора */
+            background-color: #e6f0fa;
             display: flex;
             justify-content: center;
             align-items: center;
@@ -16,7 +15,6 @@
             font-family: sans-serif;
         }
 
-        /* Контейнер для сетки (имитация рамки) */
         .grid-container {
             background-color: #d0e0f0;
             padding: 20px;
@@ -26,32 +24,27 @@
             border-bottom: 4px solid #a0b0c0;
         }
 
-        /* Сама сетка */
         .grid {
             display: grid;
             grid-template-columns: repeat(10, 1fr);
-            gap: 3px; /* Расстояние между квадратиками */
-            background-color: #a0b0c0; /* Цвет линий между квадратами */
+            gap: 3px; 
+            background-color: #a0b0c0;
             padding: 3px;
         }
 
-        /* Отдельный квадратик */
         .cell {
             width: 35px;
             height: 35px;
-            /* Убираем выделение при клике, чтобы было красивее */
             user-select: none; 
         }
 
-        /* Цвета */
         .cyan {
-            background-color: #20b2aa; /* Бирюзовый */
+            background-color: #20b2aa;
         }
         .dark-blue {
-            background-color: #1e1b8e; /* Темно-синий */
+            background-color: #1e1b8e;
         }
 
-        /* Эффект при наведении (чтобы сетка была интерактивной) */
         .cell:hover {
             opacity: 0.8;
             cursor: pointer;
@@ -61,29 +54,22 @@
 <body>
 
     <div class="grid-container">
-        <!-- Сетка будет сгенерирована через JavaScript -->
         <div class="grid" id="myGrid"></div>
     </div>
 
     <script>
-        // Получаем элемент сетки
         const grid = document.getElementById('myGrid');
 
-        // Размер сетки (10x10)
         const rows = 10;
         const cols = 10;
 
-        // Генерируем сетку
         for (let r = 0; r < rows; r++) {
             for (let c = 0; c < cols; c++) {
-                // Создаем div для каждой ячейки
                 const cell = document.createElement('div');
                 cell.classList.add('cell');
 
-                // Логика раскраски (повторяет узор с фотографии)
                 let isDarkBlue = false;
 
-                // Зная координаты, мы можем вычислить границу
                 if (r === 0 && c >= 9) isDarkBlue = true;
                 else if (r === 1 && c >= 8) isDarkBlue = true;
                 else if (r === 2 && c >= 7) isDarkBlue = true;
@@ -93,16 +79,14 @@
                 else if (r === 6 && c >= 3) isDarkBlue = true;
                 else if (r === 7 && c >= 2) isDarkBlue = true;
                 else if (r === 8 && c >= 1) isDarkBlue = true;
-                else if (r === 9) isDarkBlue = true; // Последний ряд весь темный
+                else if (r === 9) isDarkBlue = true; 
 
-                // Применяем нужный класс
                 if (isDarkBlue) {
                     cell.classList.add('dark-blue');
                 } else {
                     cell.classList.add('cyan');
                 }
 
-                // Опционально: при клике менять цвет (просто для интерактива)
                 cell.addEventListener('click', () => {
                     if (cell.classList.contains('cyan')) {
                         cell.classList.remove('cyan');
@@ -113,7 +97,6 @@
                     }
                 });
 
-                // Добавляем ячейку в сетку
                 grid.appendChild(cell);
             }
         }
