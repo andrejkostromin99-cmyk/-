@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Задание 6</title>
+</head>
+<style>
+    nav { background: #2c3e50; padding: 15px; text-align: center; }
+    nav a { color: white; text-decoration: none; margin: 0 15px; font-size: 16px; }
+    nav a:hover { color: #3498db; }
+    body { font-family: 'Times New Roman', Times, serif; background: #f4f4f9; margin: 0; }
+</style>
+<body>
+ <nav>
+        <a href="index.html"  target="_top">Мой сайт</a>
+        <a href ="table.html" target="_top">таблицы</a>
+        <a href="anketa.html"   target="_top">Анкета</a>
+        <a href="list.html"         target="_top">Список группы</a>
+        <a href="saitik.html"       target="_top">Рисунок</a>
+        <a href="Фото.html" target="_top">Задание 6.1</a>
+		<a href="Задание 6.2.html" target="_top">Задание 6.2</a>
+		<a href="09.11.html" targer="_top">09.11</a>
+		<a href="6 задание.html" targer="_top">6 задание</a>
+</nav>		
+    <form id="myForm">
+
+        <p>Ваше имя<input type="text" id="name"></p>
+        
+        <p>Пароль<input type="password" id="pass"></p>
+        
+        <p>Подтверждение пароля<input type="password" id="pass2"></p>
+        
+        <p>Электронный адрес:<input type="text" id="email"></p>
+        
+        <p>Тема сообщения: <input type="text"></p>
+        
+        <p>Сообщение:<br>
+        <textarea id="msg" rows="5" cols="30"></textarea></p>
+        
+        <button type="button" onclick="proverka()">Отправить</button>
+        <button type="reset">Очистить</button>
+    </form>
+
+    <p>необходимые для заполнения поля</p>
+
+    <script>
+        function proverka() {
+            
+            let name = document.getElementById("name").value;
+            let pass = document.getElementById("pass").value;
+            let pass2 = document.getElementById("pass2").value;
+            let email = document.getElementById("email").value;
+            let msg = document.getElementById("msg").value;
+
+            
+            if (name == "") {
+                alert("Введите имя!");
+                document.getElementById("name").focus();
+                return;
+            }
+
+            
+            if (pass.length <= 4) {
+                alert("Пароль должен быть больше 4 символов!");
+                document.getElementById("pass").focus();
+                return;
+            }
+
+            
+            if (pass2 != pass) {
+                alert("Пароли не совпадают!");
+                document.getElementById("pass2").focus();
+                return;
+            }
+
+            
+            if (email.indexOf("@") == -1) {
+                alert("Введите правильный email (нужен символ @)!");
+                document.getElementById("email").focus();
+                return;
+            }
+
+            
+            if (msg.length <= 10) {
+                alert("Сообщение должно быть длиннее 10 символов!");
+                document.getElementById("msg").focus();
+                return;
+            }
+
+           
+            alert("Всё верно! Форма отправлена.");
+        }
+    </script>
+
+</body>
+</html>
