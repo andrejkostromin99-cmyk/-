@@ -2,93 +2,83 @@
 <html lang="ru">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Сетка</title>
     <style>
-		
-    nav { background: #2c3e50; padding: 15px; text-align: center; }
-    nav a { color: white; text-decoration: none; margin: 0 15px; font-size: 16px; }
-    nav a:hover { color: #3498db; }
-    body { font-family: 'Times New Roman', Times, serif; background: #f4f4f9; margin: 0; }
-
-        body {
-            background-color: #e6f0fa;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            height: 100vh;
-            margin: 0;
-            font-family: sans-serif;
+        /* Стили для меню */
+        nav { background: #2c3e50; padding: 15px; text-align: center; }
+        nav a { color: white; text-decoration: none; margin: 0 15px; font-size: 16px; }
+        nav a:hover { color: #3498db; }
+        
+        /* Общие стили страницы */
+        body { 
+            font-family: 'Times New Roman', Times, serif; 
+            background: #e6f0fa; 
+            margin: 0; 
         }
 
+        /* Контейнер для сетки (чтобы не прилипала к краям) */
         .grid-container {
-            background-color: #d0e0f0;
-            padding: 20px;
-            border-radius: 4px;
-            box-shadow: inset 0 0 10px rgba(0,0,0,0.1), 0 10px 20px rgba(0,0,0,0.1);
-            border-top: 2px solid #fff;
-            border-bottom: 4px solid #a0b0c0;
+            margin: 30px; 
         }
 
+        /* Сама сетка */
         .grid {
             display: grid;
-            grid-template-columns: repeat(10, 1fr);
-            gap: 3px; 
+            grid-template-columns: repeat(10, 35px); /* 10 колонок по 35px */
+            gap: 3px; /* Расстояние между клетками */
             background-color: #a0b0c0;
             padding: 3px;
+            width: max-content; /* Чтобы сетка не растягивалась на весь экран */
         }
 
+        /* Клетка */
         .cell {
             width: 35px;
             height: 35px;
-            user-select: none; 
+            cursor: pointer; /* Курсор в виде руки */
         }
 
-        .cyan {
-            background-color: #20b2aa;
-        }
-        .dark-blue {
-            background-color: #1e1b8e;
-        }
+        /* Цвета клеток */
+        .cyan { background-color: #20b2aa; }
+        .dark-blue { background-color: #1e1b8e; }
 
-        .cell:hover {
-            opacity: 0.8;
-            cursor: pointer;
-        }
+        /* Эффект при наведении */
+        .cell:hover { opacity: 0.8; }
     </style>
 </head>
 <body>
-	<nav>
-        <a href="index.html"  target="_top">Мой сайт</a>
-        <a href ="table.html" target="_top">таблицы</a>
-        <a href="anketa.html"   target="_top">Анкета</a>
-        <a href="list.html"         target="_top">Список группы</a>
-        <a href="saitik.html"       target="_top">Рисунок</a>
-		<a href="Фото.html" target="_top">Задание 6.1</a>
-		<a href="Задание 6.2.html" target="_top">Задание 6.2</a>
-	    <a href="09.11.html" targer="_top">09.11</a>
-    </nav>
-</body>
-<body>
 
-    
+    <!-- Меню -->
+    <nav>
+        <a href="index.html" target="_top">Мой сайт</a>
+        <a href="table.html" target="_top">таблицы</a>
+        <a href="anketa.html" target="_top">Анкета</a>
+        <a href="list.html" target="_top">Список группы</a>
+        <a href="saitik.html" target="_top">Рисунок</a>
+        <a href="Фото.html" target="_top">Задание 6.1</a>
+        <a href="Задание 6.2.html" target="_top">Задание 6.2</a>
+        <a href="09.11.html" target="_top">09.11</a>
+    </nav>
+
+    <!-- Контейнер для сетки -->
     <div class="grid-container">
         <div class="grid" id="myGrid"></div>
     </div>
 
     <script>
         const grid = document.getElementById('myGrid');
-
         const rows = 10;
         const cols = 10;
 
+        // Цикл создания 100 клеток (10 на 10)
         for (let r = 0; r < rows; r++) {
             for (let c = 0; c < cols; c++) {
+                // Создаем div (клетку)
                 const cell = document.createElement('div');
                 cell.classList.add('cell');
 
+                // Логика закрашивания (треугольник)
                 let isDarkBlue = false;
-
                 if (r === 0 && c >= 9) isDarkBlue = true;
                 else if (r === 1 && c >= 8) isDarkBlue = true;
                 else if (r === 2 && c >= 7) isDarkBlue = true;
@@ -100,12 +90,14 @@
                 else if (r === 8 && c >= 1) isDarkBlue = true;
                 else if (r === 9) isDarkBlue = true; 
 
+                // Добавляем нужный цвет
                 if (isDarkBlue) {
                     cell.classList.add('dark-blue');
                 } else {
                     cell.classList.add('cyan');
                 }
 
+                // Клик по клетке меняет её цвет
                 cell.addEventListener('click', () => {
                     if (cell.classList.contains('cyan')) {
                         cell.classList.remove('cyan');
@@ -116,6 +108,7 @@
                     }
                 });
 
+                // Добавляем клетку в сетку
                 grid.appendChild(cell);
             }
         }
