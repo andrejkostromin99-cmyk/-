@@ -4,7 +4,6 @@
     <meta charset="UTF-8">
     <title>Сетка</title>
     <style>
-        /* Стили для страницы */
         body { 
             font-family: 'Times New Roman', Times, serif; 
             background: #e6f0fa; 
@@ -12,12 +11,11 @@
             padding: 0;
         }
 
-        /* Стили для меню - теперь оно сверху */
         nav { 
             background: #2c3e50; 
             padding: 15px; 
             text-align: center; 
-            width: 100%; /* На всю ширину */
+            width: 100%;
         }
         nav a { 
             color: white; 
@@ -29,39 +27,31 @@
             color: #3498db; 
         }
 
-        /* Контейнер для сетки (отступы от краев) */
         .grid-container {
-            margin: 30px; /* Отступ сверху и слева, чтобы не прилипало к меню */
+            margin: 30px; 
         }
 
-        /* Сама сетка */
         .grid {
             display: grid;
-            grid-template-columns: repeat(10, 35px); /* 10 колонок по 35px */
+            grid-template-columns: repeat(10, 35px);
             gap: 3px; 
             background-color: #a0b0c0;
             padding: 3px;
-            width: max-content; /* Чтобы не растягивалась на весь экран */
+            width: max-content; 
         }
 
-        /* Клетка */
         .cell {
             width: 35px;
             height: 35px;
-            cursor: pointer; 
         }
 
-        /* Цвета клеток */
         .cyan { background-color: #20b2aa; }
         .dark-blue { background-color: #1e1b8e; }
 
-        /* Эффект при наведении */
-        .cell:hover { opacity: 0.8; }
     </style>
 </head>
 <body>
 
-    <!-- Меню в самом верху -->
     <nav>
         <a href="index.html" target="_top">Мой сайт</a>
         <a href="table.html" target="_top">таблицы</a>
@@ -73,7 +63,6 @@
         <a href="09.11.html" target="_top">09.11</a>
     </nav>
 
-    <!-- Сетка под меню -->
     <div class="grid-container">
         <div class="grid" id="myGrid"></div>
     </div>
@@ -88,7 +77,6 @@
                 const cell = document.createElement('div');
                 cell.classList.add('cell');
 
-                // Логика закрашивания треугольника
                 let isDarkBlue = false;
                 if (r === 0 && c >= 9) isDarkBlue = true;
                 else if (r === 1 && c >= 8) isDarkBlue = true;
@@ -107,16 +95,7 @@
                     cell.classList.add('cyan');
                 }
 
-                // Клик по клетке меняет цвет
-                cell.addEventListener('click', () => {
-                    if (cell.classList.contains('cyan')) {
-                        cell.classList.remove('cyan');
-                        cell.classList.add('dark-blue');
-                    } else {
-                        cell.classList.remove('dark-blue');
-                        cell.classList.add('cyan');
-                    }
-                });
+               
 
                 grid.appendChild(cell);
             }
