@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Круглый div</title>
+    <style>
+        .circle {width: 100px;height: 100px; border-radius: 50%; background: gray; left: 50%;}
+    </style>
+</head>
+<body>
+<div class = "circle" id = "r" style="top: 200px;"></div>
+<div class = "circle" id = "g" style="top: 200px;"></div>
+<div class = "circle" id = "b" style="top: 200px;"></div>
+<button onclick = "Buttt()">нажми</button>
+    <script>
+	let a = 0;
+       function Buttt()
+	   {
+	     a++;
+	      document.getElementById("r").style.background = "gray";
+		  document.getElementById("g").style.background = "gray";
+		  document.getElementById("b").style.background = "gray";
+		  
+		  if(a === 1){
+		     document.getElementById("r").style.background = "red";
+			 document.getElementById("g").style.background = "gray";
+			 document.getElementById("b").style.background = "gray";
+		  }else if(a === 2){
+		     document.getElementById("g").style.background = "green";
+			 document.getElementById("r").style.background = "gray";
+			 document.getElementById("b").style.background = "gray";
+		  }else if(a === 3){
+		     document.getElementById("b").style.background = "blue";
+			 document.getElementById("r").style.background = "gray";
+			 document.getElementById("g").style.background = "gray";
+		  }else{
+		  a = 1;
+		  document.getElementById("r").style.background = "red";
+		  }
+		  
+		  
+	   
+	   
+	   
+	   }
+	   
+	   
+		
+	
+		
+    </script>
+</body>
+</html>
