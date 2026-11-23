@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>svetofor</title>
+    <style>
+        .light {width: 60px;height: 60px;border-radius: 50%;background: #555; }
+        }
+        button {margin-top: 20px;font-size: 16px;
+            
+        }
+    </style>
+</head>
+<body>
+    <div class="svetofor">
+        
+        <div id="red" class="light"></div>
+        <div id="yellow" class="light"></div>
+        <div id="green" class="light"></div>
+    </div>
+    
+    <button onclick="perekl()">perecluchit</button>
+
+    <script>
+        
+        let step = 0;
+
+        function perekl() {
+            step++; 
+
+           
+            document.getElementById("red").style.background = "#555";
+            document.getElementById("yellow").style.background = "#555";
+            document.getElementById("green").style.background = "#555";
+
+            
+            if (step === 1) {
+                document.getElementById("red").style.background = "red";
+            } else if (step === 2) {
+                document.getElementById("yellow").style.background = "yellow";
+            } else if (step === 3) {
+                document.getElementById("green").style.background = "green";
+            } else {
+               
+                step = 1;
+                document.getElementById("red").style.background = "red";
+            }
+        }
+    </script>
+</body>
+</html>
